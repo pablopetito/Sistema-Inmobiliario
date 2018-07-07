@@ -1,0 +1,93 @@
+SISTEMA INMOBILIARIO - MODULO I  - stateAgent v:1.0.0 - BORRADOR DIAGRAMA GENERAL 
+
+INICIO: 6-7-2018  
+
+**** REGLAS DEL NEGOCIO ***********************************************************************************
+
+Generar registro de OPERADORES DEL SISTEMA con disticion de Permisos de usos (Administrador, Operadores con Privilegios, Operadores solo Lectura)
+
+El sistema registrará CLIENTES, INMUEBLES, OPERACIONES (ALQUILER - VENTAS - TASACIONES), TASACIONES, PEDIDOS-ENCARGUES
+
+Se debera registrar el CLIENTE-USUARIO, proporcionandole un nombre de USUARIO y CONTRASEÑA.
+
+Para el registro de un INMUEBLE, se debera tener registrado a su propieatrio como CLIENTE-USUARIO.
+
+Para el registro de una TASACION, se debera tener registrado al INMUEBLE.
+
+Para el registro de una OPERACION, debera tenerse registrado el/los CLIENTE-USUARIO, INMUEBLE y TASACION. 
+
+Se debera contar con buscardores de CLIENTES, INMUEBLES, TASACIONES, OPERACIONES, con diferentes filtros de busquedas.
+
+*** MODELO DE DOMINIO *************************************************************************************
+  
+  clientes  ABMC (CRUD) | IMPRESION DE LISTADOS 
+
+  inmuebles ABMC (CRUD) | IMPRESION DE FICHA INDIVIDUAL y LISTADOS GENERALES con diferentes filtros    
+
+  operaciones ABMC (CRUD), IMPRESION INDIVIDUALES Y GENERALES | PUBLICACIONES AUTOMATICA 
+
+  tasaciones GENERACION MANUAL, GENERACION AUTOMATICA, IMPRESION para entregar al cliente, IMPRESION archivo  
+
+  pedidos ABMC (CRUD) | IMPRESION DE LISTADOS con diferentes filtros
+  
+  buscador Buscador general en el sistema (clientes, inmuebles, operaciones, etc)
+  
+  estadisticas Estadisticas Generales y Particulares 
+  
+*** DER - Diagrama Entidad Relacion *************************************************************************
+    
+    CLIENTES                                    INMUEBLES
+      -apellidos                                  -calle
+      -nombres                                    -nro    
+      -domicilio                                  -piso
+      -localidad                                  -dpto
+      -codigoPostal                               -unidad 
+      -provincia                                  -localidad
+      -pais                                       -codigoPostal
+      -telefonoParticular                         -provincia
+      -telefonoMovil                              -pais
+      -telefonoAlternativo                        -cliente
+      -mail                                       -tipoInmueble
+      -fechaNacimiento                            ... etc. (segun planilla)
+      -nroDNI
+      -usuario
+      -password
+
+    DOMICILIOS (CALLE DE CADA LOCALIDAD)         TASACIONES
+    
+    LOCALIDADES                                  OPERACIONES
+    
+    PROVINCIAS                                   PEDIDOS
+    
+    PAISES
+
+*** PANTALLAS *****************************************************************************************
+
+  000 - Inicio (Home)
+        - Menu (visible en todas las pantallas)
+          - CLIENTES-USUARIOS
+          - INMUEBLES
+          - TASACIONES
+          - OPERACIONES
+          - ESTADISTICAS
+          - Ayuda
+          - Hoja de Ruta/Mapa del Sitio
+          
+        - Accesos Rapidos
+          - Alta CLIENTE-USUARIO, Alta INMUEBLE, Alta OPERACION, TASACION
+          
+  001 - Clientes
+        -Cuadro con todos los clientes para se seleccionados para Consultar Detalles
+        -Botones para ALTA-BAJA-MODIFICACION-IMPRESION FICHA
+        -Botones de Escape, Volver, Inicio 
+        
+  002 - Inmuebles 
+        -Cuadro con todos los inmuebles para se seleccionados para una Consulta Detalles
+        -Botones para ALTA-BAJA-MODIFICACION-IMPRESION FICHA
+        -Botones de Escape, Volver, Inicio  
+
+  003 - Tasaciones 
+        -Cuadro con todas los tasaciones archivadas para se seleccionados para Consultar Detalles 
+        -Botones para ALTA-BAJA-MODIFICACION-IMPRESION FICHA
+        -Botones de Escape, Volver, Inicio
+  
