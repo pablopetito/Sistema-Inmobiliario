@@ -61,33 +61,54 @@ Se debera contar con buscardores de CLIENTES, INMUEBLES, TASACIONES, OPERACIONES
     
     PAISES
 
-*** PANTALLAS *****************************************************************************************
+*** MODELO DE VENTANAS/PANTALLAS | WIRE FRAMES *****************************************************************************************
 
-  000 - Inicio (Home)
-        - Menu (visible en todas las pantallas)
-          - CLIENTES-USUARIOS
-          - INMUEBLES
-          - TASACIONES
-          - OPERACIONES
-          - ESTADISTICAS
-          - Ayuda
-          - Hoja de Ruta/Mapa del Sitio
+  010 - Inicio (Home) | +010 pantallaInicio
+           -Menu Desplegable | +011 menuPrincipal
+              -CLIENTES-USUARIOS
+              -INMUEBLES
+              -TASACIONES
+              -OPERACIONES
+              -ESTADISTICAS
+              -Ayuda
+              -Hoja de Ruta/Mapa del Sitio
           
-        - Accesos Rapidos
-          - Alta CLIENTE-USUARIO, Alta INMUEBLE, Alta OPERACION, TASACION
+          -Accesos Rapidos
+              -Alta CLIENTE-USUARIO, Alta INMUEBLE, Alta OPERACION, TASACION
+                +012 botonCliente
+                +013 botonInmueble
+                +014 botonOpercaciones
+                +015 botonTasaciones
+                
+          -Boton Salir | +016 botonSalir
           
-  001 - Clientes
+  020 - Clientes | +21 patallaClientes
         -Cuadro con todos los clientes para se seleccionados para Consultar Detalles
-        -Botones para ALTA-BAJA-MODIFICACION-IMPRESION FICHA
+        -Botones para ALTA-BAJA-MODIFICACION-IMPRESION FICHA y LISTADOS
         -Botones de Escape, Volver, Inicio 
         
-  002 - Inmuebles 
+  030 - Inmuebles 
         -Cuadro con todos los inmuebles para se seleccionados para una Consulta Detalles
-        -Botones para ALTA-BAJA-MODIFICACION-IMPRESION FICHA
+        -Botones para ALTA-BAJA-MODIFICACION-IMPRESION FICHA y LISTADOS
         -Botones de Escape, Volver, Inicio  
 
-  003 - Tasaciones 
+  040 - Tasaciones 
         -Cuadro con todas los tasaciones archivadas para se seleccionados para Consultar Detalles 
-        -Botones para ALTA-BAJA-MODIFICACION-IMPRESION FICHA
+        -Botones para ALTA-BAJA-MODIFICACION-IMPRESION FICHA y LISTADOS
         -Botones de Escape, Volver, Inicio
+  
+  050 - OPERACIONES
+        -Cuadro con todas las operaciones archivadas para ser seleccionadas para Consultar Detalles
+        -Boton de Busquedad-Filtros 
+        -Impresion de Listados Buscados o Filtrados 
+        -Botones de Escape, Volver, Inicio
+  
+  060 - Estadisticas
+        -Cuadros de Estadistacas Generales y Standar
+        -Botones con distintas Estadisticas
+        -Botones de Escape, Volver, Inicio      
+  
+  070 - Ayuda
+  
+  080 - Hoja de Ruta / Mapa del Sitio
   
