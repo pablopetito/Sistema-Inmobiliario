@@ -61,54 +61,126 @@ Se debera contar con buscardores de CLIENTES, INMUEBLES, TASACIONES, OPERACIONES
     
     PAISES
 
-*** MODELO DE VENTANAS/PANTALLAS | WIRE FRAMES *****************************************************************************************
+*** App Desktop | MODELO DE VENTANAS/PANTALLAS | WIRE FRAMES *****************************************************************************************
+  000 - Resgistro de Operadores o Inicio de Sesion como Administrador, Operador con Privilegios o Operador solo Lectura
+        #001 - registroInicio
 
-  010 - Inicio (Home) | +010 pantallaInicio
-           -Menu Desplegable | +011 menuPrincipal
+  010 - Inicio (Home) | #010 pantallaInicio
+           -Menu Desplegable | #011 menuPrincipal
               -CLIENTES-USUARIOS
               -INMUEBLES
               -TASACIONES
               -OPERACIONES
+              -PEDIDOS
               -ESTADISTICAS
               -Ayuda
               -Hoja de Ruta/Mapa del Sitio
           
           -Accesos Rapidos
               -Alta CLIENTE-USUARIO, Alta INMUEBLE, Alta OPERACION, TASACION
-                +012 botonCliente
-                +013 botonInmueble
-                +014 botonOpercaciones
-                +015 botonTasaciones
-                
-          -Boton Salir | +016 botonSalir
+                #012 botonCliente
+                #013 botonInmueble
+                #014 botonOpercaciones
+                #015 botonTasaciones
+                #016 botonPedido 
           
-  020 - Clientes | +21 patallaClientes
+          -Boton de Busquedad-Filtros 
+                #017 botonBusquedad
+                #018 busqueda
+                
+          -Boton Salir | #019 botonSalir
+          
+  020 - Clientes | #20 patallaClientes
         -Cuadro con todos los clientes para se seleccionados para Consultar Detalles
-        -Botones para ALTA-BAJA-MODIFICACION-IMPRESION FICHA y LISTADOS
-        -Botones de Escape, Volver, Inicio 
+                #021 cuadroClientes
+                
+        -ALTA-BAJA-MODIFICACION-IMPRESION FICHA y LISTADOS
+                #022 clienteABM
+                
+        -Botones de Escape, Volver, Inicio
+                #023 botonEscape
+                #024 botonVolver
+                #025 botonInicio
         
-  030 - Inmuebles 
+  030 - Inmuebles | #030 pantallaInmuebles
         -Cuadro con todos los inmuebles para se seleccionados para una Consulta Detalles
-        -Botones para ALTA-BAJA-MODIFICACION-IMPRESION FICHA y LISTADOS
-        -Botones de Escape, Volver, Inicio  
+                #031 cuadroInmubles
+                
+        -ALTA-BAJA-MODIFICACION-IMPRESION FICHA y LISTADOS
+                #032 inmuebleABM 
+                
+        -Botones de Escape, Volver, Inicio
+                -idem
 
-  040 - Tasaciones 
-        -Cuadro con todas los tasaciones archivadas para se seleccionados para Consultar Detalles 
-        -Botones para ALTA-BAJA-MODIFICACION-IMPRESION FICHA y LISTADOS
+  040 - Tasaciones | #040 pantallaTasaciones
+        -Cuadro con todas los tasaciones archivadas para se seleccionados para Consultar Detalles
+                #041 cuadroTasaciones
+                
+        -ALTA-BAJA-MODIFICACION-IMPRESION FICHA y LISTADOS
+                #042 tasacionABM
+                
         -Botones de Escape, Volver, Inicio
-  
-  050 - OPERACIONES
+                -idem
+                
+  050 - OPERACIONES | #050 pantallaOperaciiones
         -Cuadro con todas las operaciones archivadas para ser seleccionadas para Consultar Detalles
-        -Boton de Busquedad-Filtros 
-        -Impresion de Listados Buscados o Filtrados 
+                #051 cuadroOperaciones
+
+        -ALTA-BAJA-MODIFICACION-IMPRESION FICHA y LISTADOS
+                #052 operacionesABM
+                
         -Botones de Escape, Volver, Inicio
+                -idem
+                
+  060 - Pedidos | #060 pantallaInmuebles
+        -Cuadro con todos los pedidos para se seleccionados para una Consulta Detalles
+                #061 cuadroPedidos
+                
+        -ALTA-BAJA-MODIFICACION-IMPRESION FICHA y LISTADOS
+                #062 inmuebleABM 
+                
+        -Botones de Escape, Volver, Inicio
+                -idem
   
-  060 - Estadisticas
+  070 - Estadisticas | #070 pantallaEstadisticas
         -Cuadros de Estadistacas Generales y Standar
+                #071 cuadroEstadisticasDefualt 
+                
         -Botones con distintas Estadisticas
-        -Botones de Escape, Volver, Inicio      
+                #072 menuEstadisticas
+        
+        -Estadisticas | # 073 estadisticas
+                
+        -Botones de Escape, Volver, Inicio
+                -idem
   
-  070 - Ayuda
+  080 - Ayuda | #080 pantallaAyuda
+                
+        - Cuadros con las Ayudas 
+                #071 cuadroAyuda             
   
-  080 - Hoja de Ruta / Mapa del Sitio
+  090 - Hoja de Ruta / Mapa del Sitio | #090 mapaSitio 
   
+  200 - MODELO
+    
+      - Archivo Configuracion
+        #201 - agentState.properties
+      
+      - Paquete Base Datos 
+        - Conexion: Se conecta a una base, y crea consultas
+          #202 - conexBaseDatos
+          
+        - Consulta: Poseen el sql a ejecutar, los parametros asociados, y devuelve resultados.
+          #203 - consultasBaseDatos
+          
+        - Resultados: Posee las rutinas necesarias para leer los registros y sus campos segun su tipo de dato.
+          #204 - procesaResultados
+      
+      - DAOS Archivos
+          #205 - clienteDao
+          #206 - inmuebleDao
+          #207 - tasacionDao
+          #208 - pedidoDao
+          #209 - operacionDao
+      
+      - ORM / Hibernate 
